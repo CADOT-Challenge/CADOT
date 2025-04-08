@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aerial Image Detection Challenge</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="logo-group">
+            <a href="https://www-l2ti.univ-paris13.fr/iriser/" target="_blank">
+              <img src="/images/lab_logo.png" alt="Lab Logo" class="nav-logo" />
+            </a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="/" class="<%= current === 'home' ? 'active' : '' %>">Home</a></li>
+            <li><a href="/dataset" class="<%= current === 'dataset' ? 'active' : '' %>">Dataset</a></li>
+            <li><a href="/timeline" class="<%= current === 'timeline' ? 'active' : '' %>">Timeline</a></li>
+            <li><a href="/registration" class="<%= current === 'registration' ? 'active' : '' %>">Registration</a></li>
+            <li><a href="/prizes" class="<%= current === 'prizes' ? 'active' : '' %>">Prizes</a></li>
+            <li><a href="/results" class="<%= current === 'results' ? 'active' : '' %>">Results</a></li>
+            <li><a href="/team" class="<%= current === 'team' ? 'active' : '' %>">Team</a></li>
+            <li><a href="/contact" class="<%= current === 'contact' ? 'active' : '' %>">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="hero">
+        <div class="countdown">
+          <div><span id="days">00</span><br>Days</div>
+          <div><span id="hours">00</span><br>Hours</div>
+          <div><span id="minutes">00</span><br>Minutes</div>
+          <div><span id="seconds">00</span><br>Seconds</div>
+        </div>
+      
+        <div class="intro">
+          <p>Opening on Monday, April 21st</p>
+          <h1>ICIP 2025 Grand Challenge</h1>
+          <a href="/registration" class="cta-button">Registration</a>
+        </div>
+        <div class="hero-logos">      
+            <img src="/images/icip_logo.png" alt="ICIP Logo" />
+        </div>
+    </section>
+  <main>
+    <%- body %> <!-- this is where content from home.ejs will be injected -->
+  </main>
+
+  <footer>
+    <p>&copy; CADOT ICIP 2025 Challenge</p>
+  </footer>
+</body>
+</html>
+<script>
+    const targetDate = new Date("April 21, 2025 00:00:00").getTime();
+  
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+  
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+  
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    };
+  
+    setInterval(updateCountdown, 1000);
+</script>
