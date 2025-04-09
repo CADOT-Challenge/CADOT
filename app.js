@@ -24,7 +24,7 @@ app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)
 // Connect Mongoose
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Team = require('./models/Team'); // adjust path if needed
+const Team = require('./models/team'); 
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
