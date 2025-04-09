@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/CADOT-Challenge/CADOT#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.13.2",
+    "nodemailer": "^6.10.0"
   }
 }

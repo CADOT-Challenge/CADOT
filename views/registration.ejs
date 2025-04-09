@@ -1,0 +1,29 @@
+<section class="registration">
+    <h2>REGISTRATION AND RULES</h2>
+  
+    <h3>Rules for participation</h3>
+    <p>
+      All participants interested in contributing to this Challenge are encouraged to carefully review and adhere to the rules outlined below. To ensure consistency and fairness in the evaluation process, every submission must include a <strong>GitHub repository</strong> structured as follows, containing the specified components.
+    </p>
+  
+    <h3>Registration</h3>
+  
+    <form class="registration-form" action="/submit-registration" method="POST">
+        <label for="teamName"><strong>Team Name</strong></label>
+        <input type="text" name="teamName" placeholder="Team Name" required />
+      
+        <div id="members-container">
+          <div class="member-form">
+            <h4>Team Member 1</h4>
+            <input type="text" name="firstName[]" placeholder="First Name" required />
+            <input type="text" name="lastName[]" placeholder="Last Name" required />
+            <input type="email" name="email[]" placeholder="Email" required />
+            <input type="text" name="institute[]" placeholder="Institute / Organization" required />
+          </div>
+        </div>
+      
+        <button type="button" id="add-member">+ Add Team Member</button>
+        <button type="submit" class="submit-button">Submit Registration</button>
+      </form>
+  </section>
+  
