@@ -9,41 +9,45 @@
   <p>Stay tuned for more updates!</p>
   <h2>Our Baseline Performance</h2>
   <p>
-    In order to provide a reference point for participants, we have established
-    a baseline performance using the YOLOv11, YOLOv12, Faster R-CNN and
-    DiffusionDet model. We also provide the experimental settings and
-    configurations used to achieve this performance for each model.
+    To establish a clear benchmark for participants, we defined baseline
+    performance using four state-of-the-art object detection models: YOLOv11,
+    YOLOv12, Faster R-CNN, and DiffusionDet. For each model, we detail the
+    experimental settings and configurations that were used to obtain the
+    reported results, ensuring transparency and reproducibility.
   </p>
-  <h3>YOLO11/YOLOv12</h3>
+  <h3>YOLOv11/YOLOv12</h3>
   <p>
-    For Yolo version 11 and version 12, we use the default setting as they
-    defined on
-    <a href="https://arxiv.org/pdf/2502.12524" target="_blank">their paper</a>
-    using a learning rate of 0.01, optimizer SGD with a momentum factor of
-    0.937 and a weight decay of 0.0005 to prevent overfitting. The training is
-    conducted over 300 epochs with a batch size of 16.
+    For YOLOv11 and YOLOv12, we adopted the default training settings as
+    specified in
+    <a href="https://arxiv.org/pdf/2502.12524" target="_blank"
+      >their respective publications</a
+    >. Both models are trained using a learning rate of 0.01 with the SGD
+    optimizer, incorporating a momentum of 0.937 and a weight decay of 0.0005
+    to mitigate overfitting. Training is conducted over 300 epochs with a batch
+    size of 16.
   </p>
   <h3>Faster R-CNN</h3>
   <p>
-    For Faster R-CNN, we use the official implementation from
+    we used the official implementation from
     <a href="https://arxiv.org/pdf/1506.01497" target="_blank"
       >Faster R-CNN paper</a
     >
-    with a VGG-16 backbone. The model is trained using the SGD optimizer with a
-    learning rate of 0.005, momentum of 0.9, and weight decay of 0.0001. We
-    adopt multi-scale training to enhance robustness and apply standard data
-    augmentations, including horizontal flipping and random cropping. We use
-    the rest of the hyper-parameters at their default settings, as specified in
-    the Fast R-CNN paper.
+    using a VGG-16 backbone. The model is trained with the SGD optimizer, a
+    learning rate of 0.005, a momentum of 0.9, and a weight decay of 0.0001. To
+    improve robustness, we incorporate multi-scale training and applied
+    standard data augmentations such as horizontal flipping and random
+    cropping. All remaining hyperparameters follow the default settings
+    provided in the Fast R-CNN paper.
   </p>
   <h3>DiffusionDet</h3>
   <p>
-    We took Swin Transformer as a backbone of the
+    For
     <a href="https://arxiv.org/pdf/2211.09788" target="_blank">DiffusionDet</a
-    >. We adopted optimizer AdamW with a base learning rate of 2.5e-5 and
-    weight decay of 1e-4. Model trained in 450000 iterations, we also applied
-    default data augmentation with RandomFlip, RandomResizedCrop, and
-    RandomCrop.
+    >, we used the Swin Transformer as the backbone architecture. The model is
+    optimized using AdamW with a base learning rate of 2.5×10⁻⁵ and a weight
+    decay of 1×10⁻⁴. Training is performed over 450,000 iterations. We applied
+    the default data augmentation strategies, including RandomFlip,
+    RandomResizedCrop, and RandomCrop.
   </p>
   <div class="results-container">
     <h2>Model Performance Comparison (mAP@50)</h2>
