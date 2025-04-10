@@ -1,194 +1,242 @@
-<section class="results-container">
-  <h2>Model Performance Comparison (mAP@50)</h2>
-  <table class="results-table">
-    <thead>
-      <tr>
-        <th>Class</th>
-        <th colspan="2">YOLOv11</th>
-        <th colspan="2">YOLOv12</th>
-        <th colspan="2">Faster R-CNN</th>
-        <th colspan="2">DiffusionDet</th>
-      </tr>
-      <tr>
-        <th></th>
-        <th>val</th>
-        <th>test</th>
-        <th>val</th>
-        <th>test</th>
-        <th>val</th>
-        <th>test</th>
-        <th>val</th>
-        <th>test</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Basketball Field</td>
-        <td>52</td>
-        <td>2</td>
-        <td>38</td>
-        <td>32</td>
-        <td>0</td>
-        <td>0</td>
-        <td>24.55</td>
-        <td>61.81</td>
-      </tr>
-      <tr>
-        <td>Building</td>
-        <td>82</td>
-        <td>83</td>
-        <td>81</td>
-        <td>82</td>
-        <td>76.79</td>
-        <td>73.26</td>
-        <td>75.84</td>
-        <td>76.64</td>
-      </tr>
-      <tr>
-        <td>Crosswalk</td>
-        <td>92</td>
-        <td>94</td>
-        <td>91</td>
-        <td>90</td>
-        <td>70.50</td>
-        <td>72.02</td>
-        <td>86.06</td>
-        <td>86.17</td>
-      </tr>
-      <tr>
-        <td>Football Field</td>
-        <td>80</td>
-        <td>38</td>
-        <td>30</td>
-        <td>30</td>
-        <td>67.18</td>
-        <td>35.28</td>
-        <td>58.13</td>
-        <td>42.52</td>
-      </tr>
-      <tr>
-        <td>Graveyard</td>
-        <td>53</td>
-        <td>18</td>
-        <td>62</td>
-        <td>58</td>
-        <td>34.17</td>
-        <td>35.84</td>
-        <td>70.23</td>
-        <td>61.42</td>
-      </tr>
-      <tr>
-        <td>Large Vehicle</td>
-        <td>52</td>
-        <td>63</td>
-        <td>57</td>
-        <td>58</td>
-        <td>37.05</td>
-        <td>45.85</td>
-        <td>86.14</td>
-        <td>86.20</td>
-      </tr>
-      <tr>
-        <td>Medium Vehicle</td>
-        <td>73</td>
-        <td>75</td>
-        <td>75</td>
-        <td>70</td>
-        <td>28.64</td>
-        <td>37.26</td>
-        <td>52.98</td>
-        <td>40.59</td>
-      </tr>
-      <tr>
-        <td>Playground</td>
-        <td>15</td>
-        <td>19</td>
-        <td>12</td>
-        <td>34</td>
-        <td>3.32</td>
-        <td>0</td>
-        <td>53.26</td>
-        <td>58.19</td>
-      </tr>
-      <tr>
-        <td>Roundabout</td>
-        <td>43</td>
-        <td>33</td>
-        <td>29</td>
-        <td>37</td>
-        <td>23.03</td>
-        <td>27.27</td>
-        <td>0.40</td>
-        <td>17.02</td>
-      </tr>
-      <tr>
-        <td>Ship</td>
-        <td>81</td>
-        <td>83</td>
-        <td>71</td>
-        <td>73</td>
-        <td>29.71</td>
-        <td>45.31</td>
-        <td>52.42</td>
-        <td>52.85</td>
-      </tr>
-      <tr>
-        <td>Small Vehicle</td>
-        <td>91</td>
-        <td>91</td>
-        <td>91</td>
-        <td>91</td>
-        <td>15.05</td>
-        <td>22.90</td>
-        <td>74.65</td>
-        <td>70.27</td>
-      </tr>
-      <tr>
-        <td>Swimming Pool</td>
-        <td>46</td>
-        <td>53</td>
-        <td>69</td>
-        <td>45</td>
-        <td>1.56</td>
-        <td>13.64</td>
-        <td>26.68</td>
-        <td>40.59</td>
-      </tr>
-      <tr>
-        <td>Tennis Court</td>
-        <td>73</td>
-        <td>78</td>
-        <td>52</td>
-        <td>68</td>
-        <td>58.18</td>
-        <td>44.69</td>
-        <td>34.39</td>
-        <td>46.94</td>
-      </tr>
-      <tr>
-        <td>Train</td>
-        <td>31</td>
-        <td>50</td>
-        <td>17</td>
-        <td>59</td>
-        <td>29.21</td>
-        <td>29.14</td>
-        <td>32.52</td>
-        <td>65.91</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th>mean Average Precision</th>
-        <th>62</th>
-        <th>56</th>
-        <th>56</th>
-        <th>59</th>
-        <th>33.88</th>
-        <th>34.46</th>
-        <th>52.76</th>
-        <th>58.43</th>
-      </tr>
-    </tfoot>
-  </table>
+<section class="results">
+  <h2>Ranking</h2>
+  <p>
+    Welcome to the CADOT Challenge ranking page! Here, you can find the latest
+    updates on the performance of various models on our dataset. We are excited
+    to share the results of the challenge and showcase the advancements in
+    object detection technology.
+  </p>
+  <p>Stay tuned for more updates!</p>
+  <h2>Our Baseline Performance</h2>
+  <p>
+    In order to provide a reference point for participants, we have established
+    a baseline performance using the YOLOv11, YOLOv12, Faster R-CNN and
+    DiffusionDet model. We also provide the experimental settings and
+    configurations used to achieve this performance for each model.
+  </p>
+  <h3>YOLO11/YOLOv12</h3>
+  <p>
+    For Yolo version 11 and version 12, we use the default setting as they
+    defined on
+    <a href="https://arxiv.org/pdf/2502.12524" target="_blank">their paper</a>
+    using a learning rate of 0.01, optimizer SGD with a momentum factor of
+    0.937 and a weight decay of 0.0005 to prevent overfitting. The training is
+    conducted over 300 epochs with a batch size of 16.
+  </p>
+  <h3>Faster R-CNN</h3>
+  <p>
+    For Faster R-CNN, we use the official implementation from
+    <a href="https://arxiv.org/pdf/1506.01497" target="_blank"
+      >Faster R-CNN paper</a
+    >
+    with a VGG-16 backbone. The model is trained using the SGD optimizer with a
+    learning rate of 0.005, momentum of 0.9, and weight decay of 0.0001. We
+    adopt multi-scale training to enhance robustness and apply standard data
+    augmentations, including horizontal flipping and random cropping. We use
+    the rest of the hyper-parameters at their default settings, as specified in
+    the Fast R-CNN paper.
+  </p>
+  <h3>DiffusionDet</h3>
+  <p>
+    We took Swin Transformer as a backbone of the
+    <a href="https://arxiv.org/pdf/2211.09788" target="_blank">DiffusionDet</a
+    >. We adopted optimizer AdamW with a base learning rate of 2.5e-5 and
+    weight decay of 1e-4. Model trained in 450000 iterations, we also applied
+    default data augmentation with RandomFlip, RandomResizedCrop, and
+    RandomCrop.
+  </p>
+  <div class="results-container">
+    <h2>Model Performance Comparison (mAP@50)</h2>
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th colspan="2">YOLOv11</th>
+          <th colspan="2">YOLOv12</th>
+          <th colspan="2">Faster R-CNN</th>
+          <th colspan="2">DiffusionDet</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>val</th>
+          <th>test</th>
+          <th>val</th>
+          <th>test</th>
+          <th>val</th>
+          <th>test</th>
+          <th>val</th>
+          <th>test</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Basketball Field</td>
+          <td>52</td>
+          <td>2</td>
+          <td>38</td>
+          <td>32</td>
+          <td>0</td>
+          <td>0</td>
+          <td>24.55</td>
+          <td>61.81</td>
+        </tr>
+        <tr>
+          <td>Building</td>
+          <td>82</td>
+          <td>83</td>
+          <td>81</td>
+          <td>82</td>
+          <td>76.79</td>
+          <td>73.26</td>
+          <td>75.84</td>
+          <td>76.64</td>
+        </tr>
+        <tr>
+          <td>Crosswalk</td>
+          <td>92</td>
+          <td>94</td>
+          <td>91</td>
+          <td>90</td>
+          <td>70.50</td>
+          <td>72.02</td>
+          <td>86.06</td>
+          <td>86.17</td>
+        </tr>
+        <tr>
+          <td>Football Field</td>
+          <td>80</td>
+          <td>38</td>
+          <td>30</td>
+          <td>30</td>
+          <td>67.18</td>
+          <td>35.28</td>
+          <td>58.13</td>
+          <td>42.52</td>
+        </tr>
+        <tr>
+          <td>Graveyard</td>
+          <td>53</td>
+          <td>18</td>
+          <td>62</td>
+          <td>58</td>
+          <td>34.17</td>
+          <td>35.84</td>
+          <td>70.23</td>
+          <td>61.42</td>
+        </tr>
+        <tr>
+          <td>Large Vehicle</td>
+          <td>52</td>
+          <td>63</td>
+          <td>57</td>
+          <td>58</td>
+          <td>37.05</td>
+          <td>45.85</td>
+          <td>86.14</td>
+          <td>86.20</td>
+        </tr>
+        <tr>
+          <td>Medium Vehicle</td>
+          <td>73</td>
+          <td>75</td>
+          <td>75</td>
+          <td>70</td>
+          <td>28.64</td>
+          <td>37.26</td>
+          <td>52.98</td>
+          <td>40.59</td>
+        </tr>
+        <tr>
+          <td>Playground</td>
+          <td>15</td>
+          <td>19</td>
+          <td>12</td>
+          <td>34</td>
+          <td>3.32</td>
+          <td>0</td>
+          <td>53.26</td>
+          <td>58.19</td>
+        </tr>
+        <tr>
+          <td>Roundabout</td>
+          <td>43</td>
+          <td>33</td>
+          <td>29</td>
+          <td>37</td>
+          <td>23.03</td>
+          <td>27.27</td>
+          <td>0.40</td>
+          <td>17.02</td>
+        </tr>
+        <tr>
+          <td>Ship</td>
+          <td>81</td>
+          <td>83</td>
+          <td>71</td>
+          <td>73</td>
+          <td>29.71</td>
+          <td>45.31</td>
+          <td>52.42</td>
+          <td>52.85</td>
+        </tr>
+        <tr>
+          <td>Small Vehicle</td>
+          <td>91</td>
+          <td>91</td>
+          <td>91</td>
+          <td>91</td>
+          <td>15.05</td>
+          <td>22.90</td>
+          <td>74.65</td>
+          <td>70.27</td>
+        </tr>
+        <tr>
+          <td>Swimming Pool</td>
+          <td>46</td>
+          <td>53</td>
+          <td>69</td>
+          <td>45</td>
+          <td>1.56</td>
+          <td>13.64</td>
+          <td>26.68</td>
+          <td>40.59</td>
+        </tr>
+        <tr>
+          <td>Tennis Court</td>
+          <td>73</td>
+          <td>78</td>
+          <td>52</td>
+          <td>68</td>
+          <td>58.18</td>
+          <td>44.69</td>
+          <td>34.39</td>
+          <td>46.94</td>
+        </tr>
+        <tr>
+          <td>Train</td>
+          <td>31</td>
+          <td>50</td>
+          <td>17</td>
+          <td>59</td>
+          <td>29.21</td>
+          <td>29.14</td>
+          <td>32.52</td>
+          <td>65.91</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>mean Average Precision</th>
+          <th>62</th>
+          <th>56</th>
+          <th>56</th>
+          <th>59</th>
+          <th>33.88</th>
+          <th>34.46</th>
+          <th>52.76</th>
+          <th>58.43</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
 </section>
