@@ -1,109 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Aerial Image Detection Challenge</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aerial Image Detection Challenge</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-          <div class="logo-group">
-            <a href="https://www-l2ti.univ-paris13.fr/iriser/" target="_blank">
-              <img src="/images/lab_logo.png" alt="Lab Logo" class="nav-logo" />
-            </a>
-          </div>
-          <ul class="nav-links">
-            <li><a href="/" class="<%= current === 'home' ? 'active' : '' %>">Home</a></li>
-            <li><a href="/dataset" class="<%= current === 'dataset' ? 'active' : '' %>">Dataset</a></li>
-            <li><a href="/timeline" class="<%= current === 'timeline' ? 'active' : '' %>">Timeline</a></li>
-            <li><a href="/registration" class="<%= current === 'registration' ? 'active' : '' %>">Registration</a></li>
-            <li><a href="/prizes" class="<%= current === 'prizes' ? 'active' : '' %>">Prizes</a></li>
-            <li><a href="/results" class="<%= current === 'results' ? 'active' : '' %>">Results</a></li>
-            <li><a href="/team" class="<%= current === 'team' ? 'active' : '' %>">Team</a></li>
-            <li><a href="/contact" class="<%= current === 'contact' ? 'active' : '' %>">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <section class="hero">
-        
-      
-        <div class="intro">
-          <h1>ICIP 2025 Grand Challenge</h1>
-          <p>Opening on Monday, April 21st</p>
+      <nav class="navbar">
+        <div class="logo-group">
+          <a href="https://www-l2ti.univ-paris13.fr/iriser/" target="_blank">
+            <img src="/images/lab_logo.png" alt="Lab Logo" class="nav-logo" />
+          </a>
         </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/" class="<%= current === 'home' ? 'active' : '' %>"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/dataset"
+              class="<%= current === 'dataset' ? 'active' : '' %>"
+              >Dataset</a
+            >
+          </li>
+          <li>
+            <a
+              href="/timeline"
+              class="<%= current === 'timeline' ? 'active' : '' %>"
+              >Timeline</a
+            >
+          </li>
+          <li>
+            <a
+              href="/registration"
+              class="<%= current === 'registration' ? 'active' : '' %>"
+              >Registration</a
+            >
+          </li>
+          <li>
+            <a
+              href="/prizes"
+              class="<%= current === 'prizes' ? 'active' : '' %>"
+              >Prizes</a
+            >
+          </li>
+          <li>
+            <a
+              href="/results"
+              class="<%= current === 'results' ? 'active' : '' %>"
+              >Results</a
+            >
+          </li>
+          <li>
+            <a href="/team" class="<%= current === 'team' ? 'active' : '' %>"
+              >Team</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="<%= current === 'contact' ? 'active' : '' %>"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="intro">
+        <h2 class="hero-subtitle">
+          <strong
+            >CHALLENGE ON CITYSCAPE AERIAL IMAGE DATASET FOR OBJECT
+            DETECTION</strong
+          >
+        </h2>
+        <h2 class="hero-title">ICIP IEEE 2025 Grand Challenge</h2>
+        <p>Opening on Monday, April 21st</p>
+      </div>
 
-        <div class="countdown">
-          <div><span id="days">00</span><br>Days</div>
-          <div><span id="hours">00</span><br>Hours</div>
-          <div><span id="minutes">00</span><br>Minutes</div>
-          <div><span id="seconds">00</span><br>Seconds</div>
-        </div>
+      <div class="countdown">
+        <div><span id="days">00</span><br />Days</div>
+        <div><span id="hours">00</span><br />Hours</div>
+        <div><span id="minutes">00</span><br />Minutes</div>
+        <div><span id="seconds">00</span><br />Seconds</div>
+      </div>
 
-        <a href="/registration" class="cta-button">Registration</a>
+      <a href="/registration" class="cta-button">Registration</a>
 
-        <div class="hero-logos-left">
-            <img src="/images/Logo_lab.png" alt="All logo">
-        </div>
-        <div class="hero-logos">      
-            <img src="/images/ICIP_logo.png" alt="ICIP Logo" />
-        </div>
+      <div class="hero-logos-top-left">
+        <img src="/images/ICIP_logo.png" alt="ICIP Logo" />
+      </div>
     </section>
-  <main>
-    <%- body %> <!-- this is where content from home.ejs will be injected -->
-  </main>
+    <main>
+      <%- body %>
+      <!-- this is where content from home.ejs will be injected -->
+    </main>
 
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <h2><span class="white">LabCom</span> <span class="blue">IRISER</span></h2>
-        <p>
-          Laboratoire Commun en « 
-          <span class="blue">I</span>ntelligence, 
-          <span class="blue">R</span>econna<span class="blue">I</span>ssance et 
-          <span class="blue">S</span>urveillanc<span class="blue">E</span> 
-          <span class="blue">R</span>éactive »
-        </p>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- LabCom IRISER description -->
+        <div class="footer-left">
+          <h2>
+            <span class="white">LabCom</span> <span class="blue">IRISER</span>
+          </h2>
+          <p>
+            Laboratoire Commun en « <span class="blue">I</span>ntelligence,
+            <span class="blue">R</span>econna<span class="blue">I</span>ssance
+            et <span class="blue">S</span>urveillanc<span class="blue">E</span>
+            <span class="blue">R</span>éactive »
+          </p>
+        </div>
+
+        <!-- Centered combined logos -->
+        <div class="footer-center">
+          <img src="/images/Logo_lab.png" alt="Partners Logos" />
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-right">
+          <p>&copy; CADOT ICIP 2025 Challenge</p>
+        </div>
       </div>
-      <div class="footer-right">
-        <p>&copy; CADOT ICIP 2025 Challenge</p>
-      </div>
-    </div>
-  </footer>
-  
-</body>
+    </footer>
+  </body>
 </html>
 <script>
-    const targetDate = new Date("April 21, 2025 00:00:00").getTime();
-  
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-  
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-  
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
-    };
-  
-    setInterval(updateCountdown, 1000);
+  const targetDate = new Date("April 21, 2025 00:00:00").getTime();
+
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  };
+
+  setInterval(updateCountdown, 1000);
 </script>
 <script>
   let memberCount = 1;
   const maxMembers = 5;
 
-  document.getElementById('add-member').addEventListener('click', () => {
+  document.getElementById("add-member").addEventListener("click", () => {
     if (memberCount >= maxMembers) return;
 
     memberCount++;
-    const container = document.getElementById('members-container');
-    const newMember = document.createElement('div');
-    newMember.classList.add('member-form');
+    const container = document.getElementById("members-container");
+    const newMember = document.createElement("div");
+    newMember.classList.add("member-form");
     newMember.innerHTML = `
       <h4>Team Member ${memberCount}</h4>
       <input type="text" name="firstName[]" placeholder="First Name" required />
@@ -114,10 +168,9 @@
     `;
     container.appendChild(newMember);
     // Attach remove event
-    newMember.querySelector('.remove-member').addEventListener('click', () => {
+    newMember.querySelector(".remove-member").addEventListener("click", () => {
       container.removeChild(newMember);
       memberCount--;
     });
   });
 </script>
-

@@ -1,26 +1,119 @@
 <section class="dataset">
-    <h2>CADOT Dataset Structure</h2>
-    <p>
-      The CADOT dataset is organized into three subsets: <strong>train</strong>, <strong>validation</strong>, and <strong>test</strong>. 
-      Each contains images, and both training and validation folders include COCO-style annotation files.
-      You can download the dataset <a href="https://www-l2ti.univ-paris13.fr/iriser/dashboard/pages/CADOT_Dataset.zip">here</a>
-    </p>
-  
-    <div class="dataset-image">
-      <img src="/images/cadot.png" alt="CADOT dataset directory structure">
+  <h2>CADOT Dataset</h2>
+
+  <p style="text-align: center; max-width: 800px; margin: 0 auto">
+    CADOT images are collected from the
+    <a href="https://www.ign.fr/institut/identity-card" target="_blank">
+      National Institute of Geographic and Forest Information (IGN) </a
+    >. All images are stored in <code>.jpg</code> format. The dataset includes:
+  </p>
+
+  <ul
+    style="
+      list-style-position: inside;
+      padding-left: 0;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+    "
+  >
+    <li>
+      4,628 high-resolution (500×500 pixels) aerial images from the Paris
+      region.
+    </li>
+    <li>
+      106,691 object annotations across 14 categories, including vehicles,
+      buildings, playgrounds, and more.
+    </li>
+    <li>
+      Complex urban scenes with occlusions and varying object sizes, offering a
+      challenging benchmark for object detection models.
+    </li>
+  </ul>
+
+  <h2>Object Categories</h2>
+  <p>CADOT contains 14 annotated object categories:</p>
+
+  <div class="object-grid">
+    <div>
+      <strong>1. Basketball Field</strong><br />Full court, playing area &
+      boundaries. Excludes bleachers.
     </div>
-    <!-- <pre><code>
-        CADOT/
-        ├── train/
-        │   ├── _annotations.coco.json
-        │   ├── image1.jpg
-        │   └── image2.jpg
-        ├── test/
-        │   ├── image1.jpg
-        │   └── image2.jpg
-        └── validation/
-            ├── _annotations.coco.json
-            ├── image1.jpg
-            └── image2.jpg
-        </code></pre> -->
-  </section>
+    <div>
+      <strong>2. Building</strong><br />Roof outline including overhangs. No
+      adjacent trees.
+    </div>
+    <div>
+      <strong>3. Crosswalk</strong><br />Only marked lines. No sidewalks or
+      roads.
+    </div>
+    <div>
+      <strong>4. Football Field</strong><br />Complete playing area. Excludes
+      audience zones.
+    </div>
+    <div>
+      <strong>5. Graveyard</strong><br />Tombstone rows only. Excludes
+      vegetation or lanes.
+    </div>
+    <div>
+      <strong>6. Large Vehicle</strong><br />Includes trailers/mounts. No
+      overlaps.
+    </div>
+    <div>
+      <strong>7. Medium Vehicle</strong><br />Full vehicle body. Avoids
+      shadows.
+    </div>
+    <div>
+      <strong>8. Playground</strong><br />Includes equipment area. Excludes
+      benches or paths.
+    </div>
+    <div>
+      <strong>9. Roundabout</strong><br />Encloses circle & island, not vehicle
+      lanes.
+    </div>
+    <div>
+      <strong>10. Ship</strong><br />Ship only. Excludes water, piers, docks.
+    </div>
+    <div>
+      <strong>11. Small Vehicle</strong><br />Car body with wheels. No shadows.
+    </div>
+    <div>
+      <strong>12. Swimming Pool</strong><br />Only water surface. No decks or
+      boards.
+    </div>
+    <div>
+      <strong>13. Tennis Court</strong><br />Playable areas and lines. Excludes
+      fencing.
+    </div>
+    <div>
+      <strong>14. Train</strong><br />Carriages or full train along track.
+    </div>
+  </div>
+  <h2>Annotation Format</h2>
+  <p>
+    We use the <strong>COCO format annotation</strong> for our CADOT dataset,
+    ensuring compatibility with popular object detection frameworks. This
+    format facilitates seamless integration into deep learning pipelines by
+    organizing data into categories, images, and object-level annotations.
+    CADOT is structured to support object detection, classification, and other
+    vision tasks.
+  </p>
+  <h2>Dataset Structure</h2>
+  <p>
+    The CADOT dataset is split into <strong>train</strong>,
+    <strong>validation</strong>, and <strong>test</strong> sets.<br />
+    The annotation files are provided for training and validation.
+    <br /><br />
+    📦 Download here:
+    <a
+      href="https://www-l2ti.univ-paris13.fr/iriser/dashboard/pages/CADOT_Dataset.zip"
+      target="_blank"
+    >
+      CADOT_Dataset.zip
+    </a>
+  </p>
+
+  <div class="dataset-image">
+    <img src="/images/cadot.png" alt="CADOT dataset directory structure" />
+  </div>
+</section>
