@@ -171,7 +171,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: 15px;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 20px
 }
 
@@ -180,7 +180,7 @@ footer {
 }
 
 .countdown span {
-  font-size: 32px;
+  font-size: 18px;
   display: block
 }
 
@@ -211,7 +211,10 @@ footer {
 
 .overview,
 .registration,
-.significance {
+.significance,
+.timeline,
+.dataset,
+.team {
   padding: 10px 10px;
   background: #f9f9f9;
   text-align: center
@@ -219,9 +222,11 @@ footer {
 
 .overview h2,
 .registration h2,
-.registration h3,
-.significance h2 {
-  font-size: 15px;
+.significance h2,
+.dataset h2,
+.team h2,
+.timeline h2 {
+  font-size: 26px;
   letter-spacing: 1px;
   margin-bottom: 16px;
   font-weight: 700;
@@ -338,17 +343,6 @@ footer {
   background-color: #444
 }
 
-.dataset,
-.team {
-  padding: 60px 20px;
-  text-align: center
-}
-
-.dataset h2 {
-  font-size: 28px;
-  margin-bottom: 20px
-}
-
 .dataset p {
   max-width: 800px;
   margin: 0 auto 30px;
@@ -364,17 +358,6 @@ footer {
 
 .team {
   background: #f9f9f9
-}
-
-.team h2,
-.timeline h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
-  color: #222
-}
-
-.timeline h2 {
-  margin-bottom: 30px
 }
 
 .team-grid {
@@ -416,12 +399,6 @@ footer {
 .team-member p {
   font-size: 14px;
   color: #666
-}
-
-.timeline {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-  text-align: center
 }
 
 .timeline-table-wrapper {
@@ -587,7 +564,6 @@ footer {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #f0f0f0;
-  margin-bottom: 8px;
   font-weight: 500;
 }
 
@@ -629,4 +605,44 @@ footer {
 
 .footer-logos img:hover {
   transform: scale(1.05);
+}
+
+.results-container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.results-container h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.results-table th {
+  background-color: #2c3e50;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.results-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.results-table tfoot th {
+  background-color: #54a0df;
+  font-weight: bold;
 }
