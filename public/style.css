@@ -240,12 +240,12 @@ footer {
 
 .overview p,
 .registration p,
+.dataset p,
 .significance p {
   text-align: justify;
   margin: 0 auto;
   font-size: 16px;
   color: #333;
-  font-size: 15px;
   line-height: 1.5;
   margin-bottom: 12px;
   max-width: 850px;
@@ -276,7 +276,6 @@ footer {
   display: block
 }
 
-.dataset-image img,
 .member-form {
   border: 1px solid #ddd;
   border-radius: 8px
@@ -343,15 +342,14 @@ footer {
   background-color: #444
 }
 
-.dataset p {
+/* .dataset p {
   max-width: 800px;
   margin: 0 auto 30px;
   font-size: 16px;
-  color: #444
-}
+} */
 
 .dataset-image img {
-  max-width: 100%;
+  max-width: 20%;
   height: auto;
   box-shadow: 0 2px 12px rgba(0, 0, 0, .1)
 }
@@ -645,4 +643,38 @@ footer {
 .results-table tfoot th {
   background-color: #54a0df;
   font-weight: bold;
+}
+
+.rules-details {
+  text-align: justify;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rules-details ul {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.rules-details ul ul {
+  margin-top: 6px;
+  margin-bottom: 12px;
+  padding-left: 20px;
+  list-style-type: circle;
+}
+
+.rules-structure img {
+  width: 20%;
+  margin: 0 auto;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
