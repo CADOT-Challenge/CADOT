@@ -215,7 +215,8 @@ footer {
 .timeline,
 .dataset,
 .team,
-.results {
+.results,
+.prizes {
   padding: 10px 10px;
   background: #f9f9f9;
   text-align: center
@@ -227,7 +228,8 @@ footer {
 .dataset h2,
 .team h2,
 .timeline h2,
-.results h2 {
+.results h2,
+.prizes h2 {
   font-size: 26px;
   letter-spacing: 1px;
   margin-bottom: 16px;
@@ -244,7 +246,8 @@ footer {
 .registration p,
 .dataset p,
 .significance p,
-.results p {
+.results p,
+.prizes p {
   text-align: justify;
   margin: 0 auto;
   font-size: 16px;
@@ -361,7 +364,8 @@ footer {
   background: #f9f9f9
 }
 
-.team-grid {
+.team-grid,
+.sponsors-grid {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -380,7 +384,16 @@ footer {
   width: 160px
 }
 
-.team-member:hover {
+.sponsors {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  transition: transform .3s ease;
+  width: 160px
+}
+
+.team-member:hover .sponsors-grid:hover {
   transform: translateY(-5px)
 }
 
@@ -389,6 +402,13 @@ footer {
   max-width: 150px;
   height: auto;
   border-radius: 50%;
+  margin-bottom: 15px
+}
+
+.sponsors-grid img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
   margin-bottom: 15px
 }
 
@@ -408,6 +428,12 @@ footer {
   margin: 0 auto
 }
 
+.prizes-table-wrapper {
+  overflow-x: auto;
+  max-width: 500px;
+  margin: 0 auto
+}
+
 .timeline-table {
   width: 100%;
   border-collapse: collapse;
@@ -417,14 +443,16 @@ footer {
   overflow: hidden
 }
 
-.timeline-table td,
-.timeline-table th {
+.timeline-table td {
   padding: 16px 20px;
   text-align: left;
   border-bottom: 1px solid #eee
 }
 
 .timeline-table th {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
   background-color: #2c3e50;
   color: #fff;
   font-weight: 700
@@ -435,6 +463,39 @@ footer {
 }
 
 .timeline-table td {
+  font-size: 15px;
+  color: #333
+}
+
+.prizes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+  border-radius: 8px;
+  overflow: hidden
+}
+
+.prizes-table td {
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee
+}
+
+.prizes-table th {
+  padding: 16px 20px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  background-color: #2c3e50;
+  color: #fff;
+  font-weight: 700
+}
+
+.prizes-table tr:hover {
+  background-color: #f1f1f1
+}
+
+.prizes-table td {
   font-size: 15px;
   color: #333
 }
