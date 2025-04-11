@@ -232,8 +232,7 @@ main {
 }
 
 .registration h3 {
-  font-size: 16px;
-  letter-spacing: 1px
+  font-size: 18px;
 }
 
 .overview p,
@@ -703,7 +702,7 @@ main {
 }
 
 .results-table {
-  width: 50%;
+  width: 100%;
   border-collapse: collapse;
   font-size: 15px;
   margin: 15px auto 15px auto;

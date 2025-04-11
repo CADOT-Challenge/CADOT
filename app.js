@@ -25,9 +25,23 @@ const pages = [
   "contact",
 ];
 pages.forEach((page) => {
-  app.get(`/${page === "home" ? "" : page}`, (req, res) => {
-    res.render(page, { current: page });
-  });
+  if (page === "results") {
+    app.get("/results", async (req, res) => {
+      try {
+        const topTeams = await Team.find({ score: { $gt: 0 } })
+          .sort({ score: -1, submittedAt: 1 })
+          .limit(10);
+        res.render("results", { current: "results", topTeams });
+      } catch (err) {
+        console.error("Error fetching top teams:", err);
+        res.render("results", { current: "results", topTeams: [] });
+      }
+    });
+  } else {
+    app.get(`/${page === "home" ? "" : page}`, (req, res) => {
+      res.render(page, { current: page });
+    });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
@@ -203,5 +217,17 @@ app.post("/api/upload-result", async (req, res) => {
     return res.status(200).json({ success: true });
   } catch (err) {
     return res.status(500).json({ success: false });
+  }
+});
+
+app.get("/results", async (req, res) => {
+  try {
+    const topTeams = await Team.find({ score: { $gt: -1 } }) // Only teams with scores
+      .sort({ score: -1, submittedAt: 1 }) // High score + earlier time
+      .limit(10);
+    res.render("results", { current: "results", topTeams });
+  } catch (err) {
+    console.error("Error loading results:", err);
+    res.render("results", { current: "results", topTeams: [] });
   }
 });
