@@ -96,9 +96,16 @@ app.post("/submit-registration", async (req, res) => {
 
     // Save new team
     const team = new Team({ teamName, members, password, score: 0 });
-    await team.validate(); // Validate the team before saving
-    await team.save();
-
+    const emailSet = new Set(email);
+    if (emailSet.size !== email.length) {
+      return res.status(400).send(`
+        <h3>Each team member must have a unique email address.</h3>
+        <a href="/registration">Back to Registration</a>
+      `);
+    } else {
+      await team.validate(); // Validate the team before saving
+      await team.save();
+    }
     // Send confirmation
     const transporter = nodemailer.createTransport({
       service: "gmail",
