@@ -61,19 +61,13 @@ main {
   padding: 0
 }
 
-footer {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 14px
-}
 
 .hero,
 .hero * {
   position: relative
 }
 
-.hero,
-footer {
+.hero {
   text-align: center
 }
 
@@ -506,26 +500,44 @@ footer {
 }
 
 .footer {
-  background-color: #2c2c2c;
+  background-color: #2a2a2a;
   color: #fff;
-  padding: 15px 10px;
+  padding: 30px 40px;
+  font-size: 14px;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
+.footer-left {
   flex: 1;
   min-width: 250px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.footer-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.footer-center img {
+  max-width: 100%;
+  height: auto;
+  max-height: 175px;
+  width: auto;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
 }
 
 .blue {
@@ -551,12 +563,6 @@ footer {
 
 .footer-center {
   text-align: center;
-}
-
-.footer-center img {
-  max-height: 120px;
-  width: auto;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
 }
 
 .footer-right {
