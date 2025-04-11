@@ -135,10 +135,23 @@ app.post("/submit-registration", async (req, res) => {
       subject: `Registration Confirmed for Team "${teamName}"`,
       html: `
         <p>Hello ${members[0].firstName},</p>
+    
         <p>Your team <strong>${teamName}</strong> has been successfully registered for the CADOT Challenge.</p>
-        <p>Use this password to submit your results: <strong>${password}</strong></p>
-        <p>Make sure to keep it safe and do not share it with anyone.</p>
-        <p>We look forward to your submission!</p>
+        <p><strong>Password for result submission:</strong> <code>${password}</code></p>
+        <p>Please keep it secure — do not share it with others.</p>
+    
+        <h4>🔑 Important Notes:</h4>
+        <pre style="background-color:#f8f8f8; padding:10px; border-radius:5px;">
+        Keep your registration password safe for results submission.
+        
+        Final rankings will consider both results and repository quality.
+        
+        Contact organizers if you encounter technical issues:
+        📧 <a href="mailto:cadot.challenge@gmail.com">cadot.challenge@gmail.com</a>
+        </pre>
+    
+        <p>🎯 We look forward to your amazing solutions! Let's innovate! 🚀</p>
+    
         <hr>
         <p><strong>Team Members:</strong></p>
         <ul>
@@ -151,7 +164,6 @@ app.post("/submit-registration", async (req, res) => {
         </ul>
       `,
     };
-
     await transporter.sendMail(mailOptions);
 
     res.send(
@@ -263,11 +275,9 @@ app.post("/contact", async (req, res) => {
     });
   } catch (err) {
     console.error("Error sending contact email:", err);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Failed to send email. Please try again later.",
-      });
+    res.status(500).json({
+      success: false,
+      message: "Failed to send email. Please try again later.",
+    });
   }
 });
