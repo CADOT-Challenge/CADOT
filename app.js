@@ -101,21 +101,20 @@ app.post("/submit-registration", async (req, res) => {
       "members.email": { $in: email },
     });
     if (existingTeamByEmail) {
-      return res
-        .status(400)
-        .send(
-          `<h3>One or more email addresses are already associated with a registered team.</h3><a href="/registration">Back to Registration</a>`
-        );
+      return res.status(400).json({
+        success: false,
+        message: "One or more email addresses are already associated with a registered team.",
+      });
     }
 
     // Save new team
     const team = new Team({ teamName, members, password, score: 0 });
     const emailSet = new Set(email);
     if (emailSet.size !== email.length) {
-      return res.status(400).send(`
-        <h3>Each team member must have a unique email address.</h3>
-        <a href="/registration">Back to Registration</a>
-      `);
+      return res.status(400).json({
+        success: false,
+        message: "Each team member must have a unique email address.",
+      });
     } else {
       await team.validate(); // Validate the team before saving
       await team.save();
@@ -166,9 +165,10 @@ app.post("/submit-registration", async (req, res) => {
     };
     await transporter.sendMail(mailOptions);
 
-    res.send(
-      `<h2>Team <strong>${teamName}</strong> registered successfully! Confirmation sent to ${members[0].email}.</h2><a href="/">Back to Home</a>`
-    );
+    res.json({
+      success: true,
+      message: `Team "${teamName}" registered successfully! Confirmation sent to ${members[0].email}.`,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error saving registration or sending email.");

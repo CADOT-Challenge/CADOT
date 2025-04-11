@@ -174,3 +174,40 @@
     <button type="submit" class="submit-button">Submit Registration</button>
   </form>
 </section>
+<script>
+  document
+    .querySelector(".registration-form")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Handle arrays like firstName[] properly
+      ["firstName", "lastName", "email", "institute"].forEach((key) => {
+        data[key] = formData.getAll(`${key}[]`);
+      });
+
+      try {
+        const response = await fetch("/submit-registration", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        if (result.success) {
+          form.reset();
+          // optionally window.location.href = '/'; if needed
+        }
+      } catch (err) {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+</script>
