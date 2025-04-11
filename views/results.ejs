@@ -1,4 +1,36 @@
+<script src="submission.js"></script>
 <section class="results">
+  <h2>Upload your results</h2>
+  <p>
+    To submit your results, please upload a json file by clicking the button
+    below. The file should contain the results of your model on the CADOT.
+  </p>
+  <button class="upload-button" onclick="openPasswordPopup()">
+    Upload Results
+  </button>
+  <div id="passwordModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Password Required</h3>
+      <input
+        type="password"
+        id="resultPassword"
+        placeholder="Enter password"
+      />
+      <button onclick="checkPassword()">Submit</button>
+      <p id="errorText" class="error-text" style="display: none">
+        Incorrect password. Please try again.
+      </p>
+    </div>
+  </div>
+  <input
+    type="file"
+    id="fileInput"
+    accept=".json"
+    style="display: none"
+    onchange="handleFileUpload()"
+  />
+
   <h2>Ranking</h2>
   <p>
     Welcome to the CADOT Challenge ranking page! Here, you can find the latest

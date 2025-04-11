@@ -132,12 +132,16 @@
           name="firstName[]"
           placeholder="First Name"
           required
+          pattern="[A-Za-zÀ-ÿ\s\-]+"
+          title="Letters only"
         />
         <input
           type="text"
           name="lastName[]"
           placeholder="Last Name"
           required
+          pattern="[A-Za-zÀ-ÿ\s\-]+"
+          title="Letters only"
         />
         <input type="email" name="email[]" placeholder="Email" required />
         <input

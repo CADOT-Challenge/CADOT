@@ -639,15 +639,15 @@ footer {
   margin: 0 0 12px 0;
 }
 
-.hero-logos-top-left {
+.hero-logos-left {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   left: 30px;
   z-index: 2;
 }
 
-.hero-logos-top-left img {
-  height: 120px;
+.hero-logos-left img {
+  height: 150px;
   width: auto;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7));
   border-radius: 10px;
@@ -745,4 +745,40 @@ footer {
 .rules-structure {
   width: 20%;
   margin: auto auto 15px auto;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.error-text {
+  color: red;
+  margin-top: 10px;
 }
