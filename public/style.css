@@ -241,7 +241,8 @@ main {
 .dataset p,
 .significance p,
 .results p,
-.prizes p {
+.prizes p,
+.results .results-table-wrapper p {
   text-align: justify;
   margin: 0 auto;
   font-size: 16px;
@@ -475,13 +476,15 @@ main {
   overflow: hidden
 }
 
-.prizes-table td {
+.prizes-table td,
+.results-table td {
   padding: 16px 20px;
   text-align: center;
   border-bottom: 1px solid #eee
 }
 
-.prizes-table th {
+.prizes-table th,
+.results-table th {
   padding: 16px 20px;
   text-align: center;
   border-bottom: 1px solid #eee;
@@ -490,11 +493,13 @@ main {
   font-weight: 700
 }
 
-.prizes-table tr:hover {
+.prizes-table tr:hover,
+.results-table tr:hover {
   background-color: #f1f1f1
 }
 
-.prizes-table td {
+.prizes-table td,
+.results-table td {
   font-size: 15px;
   color: #333
 }
@@ -569,6 +574,7 @@ main {
   text-align: right;
   color: #bbb;
   font-size: 14px;
+  bottom: 10px;
 }
 
 .object-grid {
@@ -697,9 +703,10 @@ main {
 }
 
 .results-table {
-  width: 100%;
+  width: 50%;
   border-collapse: collapse;
   font-size: 15px;
+  margin: 15px auto 15px auto;
 }
 
 .results-table th {
