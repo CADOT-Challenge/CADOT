@@ -78,7 +78,7 @@
           >
         </h2>
         <h2 class="hero-title">IEEE ICIP 2025 --- Grand Challenge</h2>
-        <h3>Opening on Monday, April 21st</h3>
+        <h3>Until Sunday, May 11th</h3>
       </div>
 
       <div class="countdown">
@@ -88,9 +88,9 @@
         <div><span id="seconds">00</span><br />Seconds</div>
       </div>
 
-      <% if (current !== 'registration') { %>
+      <!-- <% if (current !== 'registration') { %>
       <a href="/registration" class="cta-button">Rules and Registration</a>
-      <% } %>
+      <% } %> -->
 
       <div class="hero-logos-left">
         <img src="/images/ICIP_logo.png" alt="ICIP Logo" />
@@ -131,7 +131,7 @@
   </body>
 </html>
 <script>
-  const targetDate = new Date("April 21, 2025 00:00:00").getTime();
+  const targetDate = new Date("May 11, 2025 00:00:00").getTime();
 
   const updateCountdown = () => {
     const now = new Date().getTime();
