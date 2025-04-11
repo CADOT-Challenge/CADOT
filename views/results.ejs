@@ -17,7 +17,7 @@
           <tr>
             <th>Ranking</th>
             <th>Team</th>
-            <th>mAP@.5</th>
+            <th>mAP@50</th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
             <tr>
               <td><%= index + 1 %><%= ['st','nd','rd'][index] || 'th' %></td>
               <td><%= team.teamName.trim() %></td>
-              <td><%= team.score %></td>
+              <td><%= (team.score * 100).toFixed(2) %></td>
             </tr>
           <% }) %>
         </tbody>

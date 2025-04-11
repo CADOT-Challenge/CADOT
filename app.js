@@ -231,3 +231,43 @@ app.get("/results", async (req, res) => {
     res.render("results", { current: "results", topTeams: [] });
   }
 });
+
+// Contact
+app.post("/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      subject: `New Contact Message from ${name}`,
+      html: `
+        <p><strong>Sender:</strong> ${name} (${email})</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br/>")}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.json({
+      success: true,
+      message: `Thanks, ${name}! We'll get back to you soon.`,
+    });
+  } catch (err) {
+    console.error("Error sending contact email:", err);
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to send email. Please try again later.",
+      });
+  }
+});
