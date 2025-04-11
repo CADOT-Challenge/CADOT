@@ -503,7 +503,7 @@ footer {
 .footer {
   background-color: #2c2c2c;
   color: #fff;
-  padding: 30px 20px;
+  padding: 15px 10px;
 }
 
 .footer-container {
@@ -549,7 +549,7 @@ footer {
 }
 
 .footer-center img {
-  max-height: 150px;
+  max-height: 120px;
   width: auto;
   filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
 }
