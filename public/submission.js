@@ -75,7 +75,7 @@ function handleFileUpload() {
       //     alert("Upload failed. Please try again.");
       //   });
 
-      fetch("http://127.0.0.1:5000/submit", {
+      fetch("https://cadot-evaluation.onrender.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -102,7 +102,7 @@ function handleFileUpload() {
 
 function handleUpdateScore(data) {
   console.log("input data", data)
-  const { file, message,  score, team } = data
+  const { file, message, score, team } = data
   fetch("/api/update-score", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -115,8 +115,9 @@ function handleUpdateScore(data) {
   }).then(res => res.json()).then((data) => {
     if (data.success) {
       alert(
-        "Your score: " + score
+        "Your team score: " + score
       );
+      window.location.reload();
     } else {
       alert("Upload failed. Please try again.");
     }
