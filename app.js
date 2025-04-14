@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.static("public"));
 app.use(express.json());
-
+require("dotenv").config();
+const mongoose = require("mongoose");
+const Team = require("./models/team");
 const pages = [
   "home",
   "dataset",
@@ -61,10 +63,16 @@ const password = generatePassword.generate({
   strict: true,
 });
 
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 // Connect Mongoose
-require("dotenv").config();
-const mongoose = require("mongoose");
-const Team = require("./models/team");
+
 
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -120,13 +128,6 @@ app.post("/submit-registration", async (req, res) => {
       await team.save();
     }
     // Send confirmation
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -155,11 +156,11 @@ app.post("/submit-registration", async (req, res) => {
         <p><strong>Team Members:</strong></p>
         <ul>
           ${members
-            .map(
-              (m) =>
-                `<li>${m.firstName} ${m.lastName} (${m.email}) – ${m.institute}</li>`
-            )
-            .join("")}
+          .map(
+            (m) =>
+              `<li>${m.firstName} ${m.lastName} (${m.email}) – ${m.institute}</li>`
+          )
+          .join("")}
         </ul>
       `,
     };
@@ -197,14 +198,6 @@ app.post("/api/upload-result", async (req, res) => {
     return res.status(400).json({ success: false, message: "Missing data" });
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
@@ -232,6 +225,46 @@ app.post("/api/upload-result", async (req, res) => {
   }
 });
 
+app.post("/api/update-score", async (req, res) => {
+  const { file, score, teamName, password } = req.body;
+
+  if (!teamName || !password || typeof score !== "number") {
+    return res.status(400).json({ success: false, message: "Missing or invalid data." });
+  }
+
+  try {
+    const team = await Team.findOneAndUpdate(
+      { teamName: teamName, password: password },
+      { $set: { score: parseFloat((score).toFixed(4)), submittedAt: new Date() } },
+      { new: true }
+    );
+
+    if (!team) {
+      return res.status(401).json({ success: false, message: "Invalid credentials." });
+    }
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: team.members.map(m => m.email),
+      subject: `Team: ${teamName} new result submitted`,
+      text: `A new result file has been uploaded.\n\nFile name: ${file}`,
+      html: `
+        <p><strong>File:</strong> ${file}</p>
+        <p>Your team score: ${parseFloat((score * 100).toFixed(2))}</p>
+      `,
+    };
+    await transporter.sendMail(mailOptions);
+
+    return res.status(200).json({
+      success: true,
+      message: `Score updated for ${team.teamName}`,
+      newScore: team.score,
+    });
+  } catch (err) {
+    console.error("Error updating score:", err);
+    return res.status(500).json({ success: false, message: "Server error." });
+  }
+});
+
 app.get("/results", async (req, res) => {
   try {
     const topTeams = await Team.find({ score: { $gt: -1 } }) // Only teams with scores
@@ -249,14 +282,6 @@ app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,

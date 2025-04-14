@@ -8,9 +8,10 @@ function closeModal() {
   document.getElementById("errorText").style.display = "none";
 }
 let verifiedTeamName = null;
+let enteredPassword = null;
 
 function checkPassword() {
-  const enteredPassword = document.getElementById("resultPassword").value;
+  enteredPassword = document.getElementById("resultPassword").value;
 
   fetch("/api/check-password", {
     method: "POST",
@@ -32,7 +33,6 @@ function checkPassword() {
     });
 }
 
-// Step 4: Handle file upload (after password success)
 function handleFileUpload() {
   const file = document.getElementById("fileInput").files[0];
   if (!file) return;
@@ -50,11 +50,32 @@ function handleFileUpload() {
     try {
       const json = JSON.parse(event.target.result);
 
-      // Optional confirmation
       alert(`File "${file.name}" is valid. Uploading...`);
 
-      // Step 5: Upload to backend and notify organizers
-      fetch("/api/upload-result", {
+      // fetch("/api/upload-result", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     data: json,
+      //     fileName: file.name,
+      //     teamName: verifiedTeamName,
+      //   }),
+      // })
+      //   .then((res) => res.json())
+      //   .then((data) => {
+      //     if (data.success) {
+      //       alert(
+      //         "File uploaded and email sent to cadot.challenge@gmail.com!"
+      //       );
+      //     } else {
+      //       alert("Upload failed. Please try again.");
+      //     }
+      //   })
+      //   .catch(() => {
+      //     alert("Upload failed. Please try again.");
+      //   });
+
+      fetch("http://127.0.0.1:5000/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -65,13 +86,8 @@ function handleFileUpload() {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.success) {
-            alert(
-              "File uploaded and email sent to cadot.challenge@gmail.com!"
-            );
-          } else {
-            alert("Upload failed. Please try again.");
-          }
+          console.log(data)
+          handleUpdateScore(data)
         })
         .catch(() => {
           alert("Upload failed. Please try again.");
@@ -82,4 +98,27 @@ function handleFileUpload() {
   };
 
   reader.readAsText(file);
+}
+
+function handleUpdateScore(data) {
+  console.log("input data", data)
+  const { file, message,  score, team } = data
+  fetch("/api/update-score", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      file: file,
+      score: score,
+      teamName: team,
+      password: enteredPassword
+    }),
+  }).then(res => res.json()).then((data) => {
+    if (data.success) {
+      alert(
+        "Your score: " + score
+      );
+    } else {
+      alert("Upload failed. Please try again.");
+    }
+  })
 }

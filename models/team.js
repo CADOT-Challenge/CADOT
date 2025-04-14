@@ -13,7 +13,7 @@ const teamSchema = new mongoose.Schema({
   password: { type: String, required: true },
   score: {
     type: Number,
-    default: 0.0,
+    default: 0.00001,
   },
   submittedAt: { type: Date, default: Date.now },
 });
