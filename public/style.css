@@ -550,6 +550,11 @@ main {
   font-weight: bold;
 }
 
+.red {
+  color: #e72424;
+  font-weight: bold;
+}
+
 .white {
   color: #ffffff;
   font-weight: bold;
