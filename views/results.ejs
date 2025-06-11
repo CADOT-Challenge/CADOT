@@ -24,7 +24,11 @@
           <% topTeams.forEach((team, index) => { %>
             <tr>
               <td><%= index + 1 %><%= ['st','nd','rd'][index] || 'th' %></td>
-              <td><%= team.teamName.trim() %></td>
+              <td>
+                  <%= index === 0 ? ' 🏆' : index === 1 ? ' 🥈' : '' %>
+                  <%= team.teamName.trim() %>
+                  <%= index === 0 ? ' 🏆' : index === 1 ? ' 🥈' : '' %>
+              </td>
               <td><%= (team.score * 100).toFixed(2) %></td>
             </tr>
           <% }) %>
